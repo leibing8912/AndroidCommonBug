@@ -1,0 +1,2 @@
+# AndroidCommonBug
+android常见bug及解决方案总结
