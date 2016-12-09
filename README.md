@@ -423,7 +423,7 @@ public class HandlerActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // init custom handler
-        mHandler = new CustomHandler();
+        mHandler = new CustomHandler(this);
         // sendMsg
         Message msg = new Message();
         mHandler.sendMessage(msg);
