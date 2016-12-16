@@ -502,10 +502,13 @@ Error:Execution failed for task ':app:transformClassesWithDexForDebug'.
 ```
 #### 解决方案
 往module gradle里面添加代码
+
 dexOptions {
     javaMaxHeapSize "4g"
 }
+
 code:
+
 ```javascript
 android {
     compileSdkVersion 23
