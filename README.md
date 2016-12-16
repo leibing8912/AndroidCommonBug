@@ -494,6 +494,45 @@ example：
 字符串转整型数字
 首先判断字符串是否为数字字符串，然后再转换，此时最好加上try catch处理，防止崩溃。
 
+### Android Studio: GC overhead limit exceeded
+#### 报错现象
+```javascript
+Error:Execution failed for task ':app:transformClassesWithDexForDebug'.
+> java.lang.OutOfMemoryError: GC overhead limit exceeded
+```
+#### 解决方案
+往module gradle里面添加代码
+dexOptions {
+    javaMaxHeapSize "4g"
+}
+code:
+```javascript
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.xxxxx.android"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 8
+        versionName "1.3"
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+```
+链接：http://stackoverflow.com/questions/35034830/android-studio-gc-overhead-limit-exceeded
+
 
 以上是笔者在项目中遇到的常见bug以及解决方案，如有不足，请补充。
 
